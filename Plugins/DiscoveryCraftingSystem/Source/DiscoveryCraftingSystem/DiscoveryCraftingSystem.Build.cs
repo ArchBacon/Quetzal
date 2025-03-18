@@ -26,8 +26,6 @@ public class DiscoveryCraftingSystem : ModuleRules
 			new string[]
 			{
 				"Core",
-				"GameplayTags",
-				"GameplayTagsEditor",
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);

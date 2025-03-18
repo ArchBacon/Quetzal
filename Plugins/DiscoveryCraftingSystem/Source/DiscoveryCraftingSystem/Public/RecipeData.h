@@ -3,17 +3,18 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameplayTagContainer.h"
 #include "Engine/DataAsset.h"
 #include "RecipeData.generated.h"
+
+class UDiscoveryItem;
 
 USTRUCT(BlueprintType)
 struct FIngredients
 {
 	GENERATED_BODY()
 	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Ingredient, meta=(ForceInlineRow))
-	TMap<FGameplayTag, int> Ingredients = {};
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Ingredient, DisplayName="Ingredients & Amounts")
+	TMap<UDiscoveryItem*, int> Ingredients = {};
 };
 
 // Describes a recipe's input and output
@@ -23,30 +24,19 @@ class DISCOVERYCRAFTINGSYSTEM_API UDiscoveryRecipe : public UPrimaryDataAsset
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Item)
-	FGameplayTag RecipeTag = {};
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Config)
+	bool AutoDiscover = false;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Recipe)
-	FIngredients Ingredients = {};
+	FIngredients Input = {};
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Recipe)
-	FIngredients Result = {};
-};
-
-// Base class for items. Describes an item's owning gameplay tag
-UCLASS(BlueprintType)
-class DISCOVERYCRAFTINGSYSTEM_API UDiscoveryItem : public UPrimaryDataAsset
-{
-	GENERATED_BODY()
-
-public:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Item)
-	FGameplayTag ItemTag = {};
+	FIngredients Output = {};
 };
 
 // Describes an item's Name, Description, and Icon
 UCLASS(BlueprintType)
-class DISCOVERYCRAFTINGSYSTEM_API UDiscoveryDetailedItem : public UDiscoveryItem
+class DISCOVERYCRAFTINGSYSTEM_API UDiscoveryItem : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
 
