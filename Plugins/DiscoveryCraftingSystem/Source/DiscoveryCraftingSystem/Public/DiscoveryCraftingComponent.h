@@ -34,6 +34,9 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FOnRecipeDiscovered OnRecipeDiscovered;
+
+protected:
+	virtual void BeginPlay() override;
 	
 public:
 	UFUNCTION(BlueprintCallable)
@@ -46,8 +49,12 @@ public:
 	void RegisterItemsAndRecipes(TArray<UDiscoveryItem*> InItems, TArray<UDiscoveryRecipe*> InRecipes);
 
 	UFUNCTION(BlueprintCallable)
-	void DiscoverRecipe(UDiscoveryRecipe* Recipe);
+	bool DiscoverRecipe(UDiscoveryRecipe* Recipe);
 
+protected:
+	bool DiscoverRecipe_Internal(UDiscoveryRecipe* Recipe);
+
+public:
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	TArray<UDiscoveryRecipe*> GetDiscoveredRecipes() const { return DiscoveredRecipes; };
 };

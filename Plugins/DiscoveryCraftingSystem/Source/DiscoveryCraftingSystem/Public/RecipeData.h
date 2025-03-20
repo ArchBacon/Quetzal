@@ -17,23 +17,6 @@ struct FIngredients
 	TMap<UDiscoveryItem*, int> Ingredients = {};
 };
 
-// Describes a recipe's input and output
-UCLASS(BlueprintType)
-class DISCOVERYCRAFTINGSYSTEM_API UDiscoveryRecipe : public UPrimaryDataAsset
-{
-	GENERATED_BODY()
-
-public:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Config)
-	bool AutoDiscover = false;
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Recipe)
-	FIngredients Input = {};
-	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Recipe)
-	FIngredients Output = {};
-};
-
 // Describes an item's Name, Description, and Icon
 UCLASS(BlueprintType)
 class DISCOVERYCRAFTINGSYSTEM_API UDiscoveryItem : public UPrimaryDataAsset
@@ -49,4 +32,30 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Display)
 	TObjectPtr<UTexture2D> Thumbnail = nullptr;
+};
+
+// Describes a recipe's input and output
+UCLASS(BlueprintType)
+class DISCOVERYCRAFTINGSYSTEM_API UDiscoveryRecipe : public UPrimaryDataAsset
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Display)
+	FText Name = {};
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Display, meta=(MultiLine="true"))
+	FText Description = {};
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Display)
+	TObjectPtr<UTexture2D> Thumbnail = nullptr;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Config)
+	bool AutoDiscover = false;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Recipe)
+	FIngredients Input = {};
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Recipe)
+	FIngredients Output = {};
 };

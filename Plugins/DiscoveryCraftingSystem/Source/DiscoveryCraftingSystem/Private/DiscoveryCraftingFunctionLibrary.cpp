@@ -5,7 +5,7 @@
 #include "DiscoveryCraftingFunctionLibrary.h"
 #include "Engine/AssetManager.h"
 
-void UCyberneticFunctionLibrary::FindAllCraftingRecipes(TArray<UDiscoveryRecipe*>& Recipes)
+void UDiscoveryCraftingFunctionLibrary::FindAllCraftingRecipes(TArray<UDiscoveryRecipe*>& Recipes)
 {
 	const UAssetManager& AssetManager = UAssetManager::Get();
 	TArray<FAssetData> Assets{};
@@ -18,7 +18,7 @@ void UCyberneticFunctionLibrary::FindAllCraftingRecipes(TArray<UDiscoveryRecipe*
 	}
 }
 
-void UCyberneticFunctionLibrary::FindAllCraftingItems(TArray<UDiscoveryItem*>& Items)
+void UDiscoveryCraftingFunctionLibrary::FindAllCraftingItems(TArray<UDiscoveryItem*>& Items)
 {
 	const UAssetManager& AssetManager = UAssetManager::Get();
 	TArray<FAssetData> Assets{};
@@ -31,7 +31,7 @@ void UCyberneticFunctionLibrary::FindAllCraftingItems(TArray<UDiscoveryItem*>& I
 	}
 }
 
-void UCyberneticFunctionLibrary::FindAllCraftingItemsAndRecipes(
+void UDiscoveryCraftingFunctionLibrary::FindAllCraftingItemsAndRecipes(
 	TArray<UDiscoveryItem*>& Items,
 	TArray<UDiscoveryRecipe*>& Recipes
 ) {

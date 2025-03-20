@@ -3,7 +3,7 @@
 	"Version": 1,
 	"VersionName": "1.0",
 	"FriendlyName": "DiscoveryCraftingSystem",
-	"Description": "A simple crafting system with dicoverable recipes",
+	"Description": "A simple crafting system with discoverable recipes",
 	"Category": "Other",
 	"CreatedBy": "Christian Delicaat",
 	"CreatedByURL": "",

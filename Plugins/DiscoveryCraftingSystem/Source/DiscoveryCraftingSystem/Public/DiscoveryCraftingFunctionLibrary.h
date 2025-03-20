@@ -8,7 +8,7 @@
 #include "DiscoveryCraftingFunctionLibrary.generated.h"
 
 UCLASS()
-class DISCOVERYCRAFTINGSYSTEM_API UCyberneticFunctionLibrary : public UBlueprintFunctionLibrary
+class DISCOVERYCRAFTINGSYSTEM_API UDiscoveryCraftingFunctionLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 

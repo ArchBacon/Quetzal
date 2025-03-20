@@ -2,6 +2,8 @@
 
 #include "DiscoveryCraftingSystem.h"
 
+DEFINE_LOG_CATEGORY(DiscoveryCraftingLog);
+
 #define LOCTEXT_NAMESPACE "FDiscoveryCraftingSystemModule"
 
 void FDiscoveryCraftingSystemModule::StartupModule()
